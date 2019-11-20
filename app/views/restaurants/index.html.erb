@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1>Restaurants</h1>
+
+<%= link_to 'New Restaurant', new_restaurant_path, class: 'btn btn-info btn-lg btn-block my-3' %>
+<%= link_to 'Top Resto', all_star_restaurants_path, class: 'btn btn-success btn-lg btn-block my-3' %>
+
+<%= render 'card', restaurants: @restaurants %>
+
+

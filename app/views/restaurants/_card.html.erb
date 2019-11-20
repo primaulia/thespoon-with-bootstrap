@@ -1,0 +1,29 @@
+<style type="text/css">
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+  }
+</style>
+
+<div class="cards-container">
+  <% restaurants.each do |resto| %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= resto.name %>
+
+          <% if resto.stars > 3 %>
+            <span class="badge badge-success"><%= resto.stars %></span>
+          <% else %>
+            <span class="badge badge-warning"><%= resto.stars %></span>
+          <% end %>
+        </h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= resto.address %></h6>
+        <p class="card-text"><%= resto.description %></p>
+        <%= link_to 'See', restaurant_path(resto), class: 'btn btn-primary' %>
+        <%= link_to 'View chef', chef_restaurant_path(resto), class: 'btn btn-secondary' %>
+      </div>
+    </div>  
+  <% end %>  
+</div>
