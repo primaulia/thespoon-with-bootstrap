@@ -9,11 +9,12 @@ class CommentsController < ApplicationController
     # we need `restaurant_id` to associate comment with corresponding restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
     @comment.restaurant = @restaurant
+    @comments = @restaurant.comments
     
     if @comment.save
       redirect_to restaurant_path(@restaurant)
     else
-      render 'restaurants/show'
+      render "restaurants/show"
     end    
   end
 

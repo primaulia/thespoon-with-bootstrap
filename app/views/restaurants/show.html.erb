@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h2>
   <%= @restaurant.name %>
-</p>
+</h2>
 
 <p>
   <strong>Address:</strong>
@@ -20,17 +19,10 @@
   <%= @restaurant.stars %>
 </p>
 
-<%= render 'comments/form', restaurant: @restaurant, comment: @restaurant.comments.build %>
-
-<ul>
-  <% @restaurant.comments.each do |comment| %>
-  <li><%= comment.content %></li>
-  <% end %>  
-</ul>
-
-
-
-  
-
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
+
+<%= render 'comments/form', restaurant: @restaurant, comment: @comment %>
+<%= render 'comments/card', comments: @comments %>
+
+

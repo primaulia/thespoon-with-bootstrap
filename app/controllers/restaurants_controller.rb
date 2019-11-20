@@ -17,7 +17,10 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
-    # raise
+    @comment = Comment.new
+    @comment.restaurant = @restaurant
+
+    @comments = @restaurant.comments.order(created_at: :desc)
   end
 
   # GET /restaurants/new

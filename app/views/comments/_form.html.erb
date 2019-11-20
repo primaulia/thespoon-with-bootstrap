@@ -1,11 +1,11 @@
 <%= simple_form_for [restaurant, comment] do |f| %>
   <% if comment.errors.any? %>
-    <div class="errors-container">
-      <ul>
-        <% comment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <div class="errors-container my-3">
+      <% comment.errors.full_messages.each do |message| %>
+        <div class="alert alert-danger" role="alert">
+          <%= message %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 
